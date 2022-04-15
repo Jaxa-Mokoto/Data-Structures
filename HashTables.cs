@@ -38,6 +38,11 @@ class MainClass {
         Hashtable myHashtableFromDictionary = new Hashtable(myDictionary);
         
         // To retrieve value of hash table
-        Console.WriteLine($"The value of eleven is " + (string)myHashtableFromDictionary[11]);
+        Console.WriteLine($"The value of eleven is  {(string)myHashtableFromDictionary[11]}");
+        
+        // To see each dictionary item in the hashtable
+        foreach (DictionaryEntry value in myHashtableFromDictionary){
+            Console.WriteLine($"Key:  {value.Key}, value: {value.Value}");
+        }
     }
 }
