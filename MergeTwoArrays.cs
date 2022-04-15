@@ -7,9 +7,10 @@ using System.Linq;
 
 class MainClass {
     static void Main() {
-        Console.WriteLine("Hello World!");
-
-        var array = mergeSortedArrays();
+    
+        int[] arr1 = new int[4] {0,3,44,31};
+        int[] arr2 = new int[4] {3,-1,6,30};
+        var array = mergeSortedArrays(arr1, arr2);
         foreach( var item in array)
         {
             Console.WriteLine(item.ToString());
@@ -42,10 +43,7 @@ class MainClass {
         return unsortedArray;
     }
     
-    public static int[] mergeSortedArrays(){
-  
-        int[] arr1 = new int[4] {0,3,44,31};
-        int[] arr2 = new int[4] {3,-1,6,30};
+    public static int[] mergeSortedArrays(int[] arr1, int[] arr2){
         
         // merge arrays
         int[] mergedArray;
