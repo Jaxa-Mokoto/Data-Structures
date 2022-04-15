@@ -22,5 +22,22 @@ class MainClass {
         
         // To retrieve value of hash table
         Console.WriteLine($"The value of one is " + (string)myHashtable[1]);
+        
+        //------------------------------------------------------------------
+        //Example Two: creating hash tables and cast values from Dictionary
+        //------------------------------------------------------------------
+        
+        // Casting each element in Dictionary to Hash Table
+        // Instantiate the Dictionary
+        Dictionary<int, string> myDictionary = new Dictionary<int, string>() {
+            {10, "Ten"},
+            {11, "Eleven"}
+        };
+        
+        // Now cast to Hashtable
+        Hashtable myHashtableFromDictionary = new Hashtable(myDictionary);
+        
+        // To retrieve value of hash table
+        Console.WriteLine($"The value of eleven is " + (string)myHashtableFromDictionary[11]);
     }
 }
