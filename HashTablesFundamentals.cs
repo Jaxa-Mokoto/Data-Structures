@@ -37,6 +37,12 @@ class MainClass {
         // Now cast to Hashtable
         Hashtable myHashtableFromDictionary = new Hashtable(myDictionary);
         
+        // To remove a value from a Hashtable
+        myHashtableFromDictionary.Remove(11);
+        
+        // To see if a key exists in a hash table (and v/v with ContainsValue(value) & Contains(key, value))
+        myHashtableFromDictionary.ContainsKey(11);
+        
         // To retrieve value of hash table
         Console.WriteLine($"The value of eleven is  {(string)myHashtableFromDictionary[11]}");
         
