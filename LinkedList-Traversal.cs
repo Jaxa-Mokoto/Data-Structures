@@ -1,3 +1,8 @@
+//----------------------------------------------------------------------------------
+// This example is a continuation from the LinkedList-Fundamentals.cs solution
+// This file includes example of insert(index, value) and delete(index)
+//----------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
