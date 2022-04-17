@@ -1,7 +1,8 @@
 //----------------------------------------------------------------------------------
 // This example is a continuation from the LinkedList-Fundamentals.cs solution
-// This file includes example of insert(index, value) and remove(index)
+// This file includes example of insert(index, value), remove(index) & reverse()
 //----------------------------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -135,6 +136,33 @@ public class MainClass
             numberOfElementsInLinkedList--;
         }
         
+        // Method to reverse the linked list
+        public void Reverse()
+        {
+            //[11] [22] [99] [66] [88] --> [88] [66] [99] [22] [11]
+            
+            //validate data 
+            if (numberOfElementsInLinkedList == 1)
+            {
+                Console.WriteLine("No Items In List to Reverse :)");
+            }
+            
+            var firstNode = head;
+            var secondNode = head.next;
+            
+            while(secondNode != null) //while there is an existing value
+            {
+                // Comments indicate first iteration as an example
+                var temp = secondNode.next; // this is to hold 99 in our example
+                secondNode.next = firstNode; // [88] [66] [88] [..] [..]
+                firstNode = secondNode; // [66] [66] [88] [..] [..]
+                secondNode = temp; // [66] [99] [88] [..] [..]
+            }
+            
+            head.next = null;
+            head = firstNode;
+        }
+        
         // Method to traverse through the linked list to the desired index
         public LinkedListNode TraverseToIndex(int index)
         {
@@ -174,17 +202,21 @@ public class MainClass
 
         // Add new elements to the linked list
         myLinkedList.AddNodeToFront(2);
-        myLinkedList.AddNodeToFront(23);
-        myLinkedList.AddNodeToFront(4);
-        myLinkedList.AddNodeToFront(55);
-        myLinkedList.AddNodeToFront(6);
-        myLinkedList.AddNodeToFront(78);
-        myLinkedList.AddNodeToFront(78);
-        myLinkedList.AddNodeToFront(55);
         
+        myLinkedList.AppendLinkedList(23);
+        myLinkedList.AppendLinkedList(4);
+        myLinkedList.AppendLinkedList(55);
+        myLinkedList.AppendLinkedList(6);
+        myLinkedList.AppendLinkedList(78);
+        myLinkedList.AppendLinkedList(78);
+        myLinkedList.AppendLinkedList(55);
         myLinkedList.AppendLinkedList(5);
+        
         myLinkedList.Insert(2, 2222);
+        
         myLinkedList.Remove(1);
+        
+        myLinkedList.Reverse();
         myLinkedList.PrintList();
     }
 }
