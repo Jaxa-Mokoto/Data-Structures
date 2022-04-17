@@ -1,8 +1,7 @@
 //----------------------------------------------------------------------------------
 // This example is a continuation from the LinkedList-Fundamentals.cs solution
-// This file includes example of insert(index, value) and delete(index)
+// This file includes example of insert(index, value) and remove(index)
 //----------------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,6 +116,25 @@ public class MainClass
             numberOfElementsInLinkedList++;
         }
         
+        // Method to remove items from linked list wit a given index
+        public void Remove(int index) 
+        {
+            // Validate params (skipped..)
+            
+            // Get the leading node (node before the one to delete
+            var leadNode = TraverseToIndex(index-1);
+            
+            // Get the node to remove
+            var nodeToRemove = leadNode.next;
+            
+            // Get the deleted node's pointer
+            var disconnectedPointer = nodeToRemove.next;
+                      
+            // Reset pointer
+            leadNode.next = disconnectedPointer;
+            numberOfElementsInLinkedList--;
+        }
+        
         // Method to traverse through the linked list to the desired index
         public LinkedListNode TraverseToIndex(int index)
         {
@@ -166,6 +184,7 @@ public class MainClass
         
         myLinkedList.AppendLinkedList(5);
         myLinkedList.Insert(2, 2222);
+        myLinkedList.Remove(1);
         myLinkedList.PrintList();
     }
 }
