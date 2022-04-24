@@ -31,7 +31,7 @@ class BinaryTree
                     {
                         currentNode.LeftNode = newNode;
                     }
-                    currentNode = currentNode.LeftNode; 
+                    currentNode = currentNode.LeftNode; // if there is something on the RightNode
                 }
                 
                 if (value > currentNode.Data) //Is new node in right tree?
@@ -40,7 +40,7 @@ class BinaryTree
                     {
                         currentNode.RightNode = newNode;
                     }
-                    currentNode = currentNode.RightNode;
+                    currentNode = currentNode.RightNode;  // if there is something on the RightNode
                 }
                 else 
                 {
