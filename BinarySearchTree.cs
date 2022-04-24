@@ -31,7 +31,7 @@ class BinaryTree
                     {
                         currentNode.LeftNode = newNode;
                     }
-                    currentNode = currentNode.LeftNode; // if there is something on the RightNode
+                    currentNode = currentNode.LeftNode; 
                 }
                 
                 if (value > currentNode.Data) //Is new node in right tree?
@@ -40,7 +40,7 @@ class BinaryTree
                     {
                         currentNode.RightNode = newNode;
                     }
-                    currentNode = currentNode.RightNode;  // if there is something on the RightNode
+                    currentNode = currentNode.RightNode;
                 }
                 else 
                 {
@@ -160,17 +160,18 @@ class MainClass {
     static void Main() 
     {
         BinaryTree binaryTree = new BinaryTree();
-         
-        binaryTree.Insert(1);
-        binaryTree.Insert(2);
-        binaryTree.Insert(7);
-        binaryTree.Insert(3);
-        binaryTree.Insert(10);
+        
+        binaryTree.Insert(9);
+        binaryTree.Insert(4);
+        binaryTree.Insert(6);
+        binaryTree.Insert(20);
+        binaryTree.Insert(170);
         binaryTree.Insert(5);
-        binaryTree.Insert(89);
+        binaryTree.Insert(13);
          
         Node node = binaryTree.Find(5);
         int depth = binaryTree.GetTreeDepth();
+        Console.WriteLine($"Depth to find {node.Data} is {depth} \n ");
          
         Console.WriteLine("PreOrder Traversal:");
         binaryTree.TraversePreOrder(binaryTree.Root);
