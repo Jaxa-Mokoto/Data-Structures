@@ -1,54 +1,53 @@
-//-------------------------------------------------------------------------------------------------
-//Excerise 2: Merge two given arrays
-//-------------------------------------------------------------------------------------------------
+//Given two arrays' sort the arrays and then merge them 
+// {0,3,44,31};
+// {3,-1,6,30};    
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
-class MainClass {
-    static void Main() {
+public class HelloWorld
+{
+    // instantiate the arrays
+
     
-        int[] arr1 = new int[4] {0,3,44,31};
-        int[] arr2 = new int[4] {3,-1,6,30};
-        var array = mergeSortedArrays(arr1, arr2);
-        foreach( var item in array)
-        {
-            Console.WriteLine(item.ToString());
-        }
+    public static void Main(string[] args)
+    {
+        int[] array1 = new int[4] {0,3,44,31};
+        int[] array2 = new int[4] {3,-1,6,30};
+        
+        int[] mergedArray = mergeArrays(array1, array2);
+        Console.WriteLine("Unsorted Merged Array: ");
+        Console.WriteLine(String.Join(",", mergedArray));
+        
+        int[] mergedAndSortedArray = sortArray(mergedArray);
+        Console.WriteLine("Sorted and Merged Array: ");
+        Console.WriteLine(String.Join(",",mergedAndSortedArray));
     }
     
-    // Data Structure given: [0,3,4,31], [3,4,6,30]
-    // Assumptions:
-    // - Given arrays are static
-    // - Arrays will always contain integers
-    // Fact:
-    // - Array's as data type
-    // - Must not use built in fuctions
-    // Goal:
-    // - return a sorted array containing the two merged arrays
-    public static int[] sortArrays(int[] unsortedArray){
-        // sort
-        for (var j = unsortedArray.Length-1; j > 0; j--) //O(n^2) - Quadratic TC
+    // method to merge the arrays
+    public static int[] mergeArrays(int[] array1, int[] array2)
+    {
+        foreach(var item in array2)
         {
-            for(var i = 0; i < j; i++)
-            { 
-                if (unsortedArray[i] > unsortedArray[i +1])
+            array1 = array1.Append(item).ToArray(); //BigO of O(n) - push  
+        }
+        return array1;
+    }
+    
+    // method to sort the array after merge
+    public static int[] sortArray(int[] mergedArray)
+    {
+        for (var j = mergedArray.Length -1; j > 0; j--)
+        {
+            for (var i = 0; i < j; i++)
+            {
+                var temp = mergedArray[i];
+                if (mergedArray[i] > mergedArray[i+1])
                 {
-                    var temp = unsortedArray[i];
-                    unsortedArray[i] =  unsortedArray[i+1];
-                    unsortedArray[i+1] = temp;
+                    mergedArray[i] = mergedArray[i+1];
+                    mergedArray[i+1] = temp;
                 }
             }
         }
-        return unsortedArray;
-    }
-    
-    public static int[] mergeSortedArrays(int[] arr1, int[] arr2){
-        
-        // merge arrays
-        int[] mergedArray;
-        mergedArray = arr1.Union(arr2).ToArray();
-        
-        return sortArrays(mergedArray);
-    }
+        return mergedArray;
+    }   
 }
