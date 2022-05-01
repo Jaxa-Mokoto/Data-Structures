@@ -22,8 +22,6 @@ namespace Sorting {
             foreach (int value in sortedArray)
                 Console.Write(value + " ");
             Console.WriteLine("\n");
-            
-            //-------------------------------------------------------
           
             //-------------------------------------------------------
             // Log to console the sorted array - Insertion Results 
@@ -32,6 +30,9 @@ namespace Sorting {
             foreach (int value in insertSortArray)
                 Console.Write(value + " ");
             Console.WriteLine("\n");
+            
+            //-------------------------------------------------------
+            MergeSort(unsortedArray);
         }
       
         //--------------------------
@@ -81,6 +82,32 @@ namespace Sorting {
       //--------------------------
       public static int[] MergeSort(int[] array)
       {
+        // verify if the array has more than 1 value
+        if (array.Length == 1)
+        {
+            Console.WriteLine("Nothing to sort!");
+            return array;
+        }
+          
+        // split the array into left and right partials
+        int length = array.Length;
+        int middle = (int)Math.Floor((decimal)length / 2);
+        
+        int[] leftIndex = array[0.. middle];
+        int[] rightIndex = array[middle..];
+        
+        // To display slices - not required
+        Console.Write("Left Slice: ");
+        foreach (int value in leftIndex)
+            Console.Write(value + " ");
+        Console.Write("\n");
+        
+        Console.Write("Right Slice: ");
+        foreach (int value in rightIndex)
+            Console.Write(value + " ");
+        Console.Write("\n");            
+
+        //Console.Write(RightIndex);
          
          return array;
       }
