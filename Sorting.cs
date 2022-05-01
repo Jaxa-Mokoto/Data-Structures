@@ -93,21 +93,37 @@ namespace Sorting {
         int length = array.Length;
         int middle = (int)Math.Floor((decimal)length / 2);
         
-        int[] leftIndex = array[0.. middle];
-        int[] rightIndex = array[middle..];
+        int[] leftSlice = array[0.. middle];
+        int[] rightSlice = array[middle..];
         
         // To display slices - not required
         Console.Write("Left Slice: ");
-        foreach (int value in leftIndex)
+        foreach (int value in leftSlice)
             Console.Write(value + " ");
         Console.Write("\n");
         
         Console.Write("Right Slice: ");
-        foreach (int value in rightIndex)
+        foreach (int value in rightSlice)
             Console.Write(value + " ");
         Console.Write("\n");            
 
-        //Console.Write(RightIndex);
+        int [] sortedArrayResult = new int[] {};
+        int leftIndex = 0;
+        int rightIndex = 0;
+        
+        while (leftIndex < leftSlice.Length && rightIndex < rightSlice.Length)
+        {
+            if (leftSlice[leftIndex] < rightSlice[rightIndex])
+            {
+                sortedArrayResult[leftIndex] = leftSlice[leftIndex];
+                leftIndex++;
+            }
+            else
+            {
+                sortedArrayResult[rightIndex] = rightSlice[rightIndex];
+                rightIndex++;
+            }
+        }
          
          return array;
       }
