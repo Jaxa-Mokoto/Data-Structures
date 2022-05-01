@@ -6,24 +6,32 @@ namespace Sorting {
    class MySortingAlgorithms {
         static void Main(string[] args) {
           
-          // Given array
-            int[] unsortedArray = { 78, 55, 45, 98, 13 };
+            // Given array
+            int[] unsortedArray = {23, 9, 85, 12, 99, 34, 60, 15, 100, 1};
             
-          // Log to console the unsorted array
+            // Log to console the unsorted array
             Console.WriteLine("Unsorted:");
             foreach(int value in unsortedArray)
                 Console.Write(value + " ");
             Console.WriteLine("\n");
                 
-          //-------------------------------------------------------
-          // Log to console the sorted array - BubbleSort Results
+            //-------------------------------------------------------
+            // Log to console the sorted array - BubbleSort Results
             int[] sortedArray =  BubbleSort(unsortedArray);
             Console.WriteLine("Bubble Sort Result:");
             foreach (int value in sortedArray)
                 Console.Write(value + " ");
-          //-------------------------------------------------------
+            Console.WriteLine("\n");
+            
+            //-------------------------------------------------------
           
-          
+            //-------------------------------------------------------
+            // Log to console the sorted array - Insertion Results 
+            int[] insertSortArray = InsertionSort(unsortedArray);
+            Console.WriteLine("Insertion Sort Result:");
+            foreach (int value in insertSortArray)
+                Console.Write(value + " ");
+            Console.WriteLine("\n");
         }
       
         //--------------------------
@@ -45,22 +53,48 @@ namespace Sorting {
             return array;
        }
 
+      
        //--------------------------
        // Example 2: Insertion Sort
        //--------------------------
+       //Insertion Sort is a sorting algorithm that takes an element at a time and inserts it in its correct position in the array. This process is continued until the array is sorted.
+       public static int[] InsertionSort(int[] array)
+       {
+           int flag = 0;
+           int temp = 0;
+           for (var i = 1; i < array.Length; i++) {
+               temp = array[i];
+               for (var j = i - 1; j >= 0 && flag != 1; ) {
+                  if (temp < array[j]) {
+                     array[j + 1] = array[j];
+                     j--;
+                     array[j + 1] = temp;
+                  }
+                  else flag = 1;
+               }
+           }
+           return array;
+       }
+
+      //--------------------------
+      // Example 3: Merge Sort
+      //--------------------------
+      public static int[] MergeSort(int[] array)
+      {
+         
+         return array;
+      }
 
 
 
+       //--------------------------
+       // Example 4: Quick Sort
+       //--------------------------
+      public static int[] QuickSort(int[] array)
+      {
 
-
-// Example 3: Merge Sort
-
-
-
-
-
-// Example 4: Quick Sort
-
+         return array;
+      }
      
     }
 }
