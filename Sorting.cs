@@ -2,6 +2,8 @@
 // This file contains examples on how to implement sorting algorithms
 //----------------------------------------------------------------------------------------------------------------
 using System;
+using System.Collections;
+
 namespace Sorting {
    class MySortingAlgorithms {
         static void Main(string[] args) {
@@ -80,13 +82,12 @@ namespace Sorting {
       //--------------------------
       // Example 3: Merge Sort
       //--------------------------
-      public static int[] MergeSort(int[] array)
+      public static void MergeSort(int[] array)
       {
         // verify if the array has more than 1 value
         if (array.Length == 1)
         {
             Console.WriteLine("Nothing to sort!");
-            return array;
         }
           
         // split the array into left and right partials
@@ -107,11 +108,11 @@ namespace Sorting {
             Console.Write(value + " ");
         Console.Write("\n");            
 
-        int [] sortedArrayResult = new int[] {};
+        int[] sortedArrayResult = new int[] {};
         int leftIndex = 0;
         int rightIndex = 0;
         
-        while (leftIndex < leftSlice.Length && rightIndex < rightSlice.Length)
+        while (leftIndex <= leftSlice.Length-1 && rightIndex <= rightSlice.Length-1)
         {
             if (leftSlice[leftIndex] < rightSlice[rightIndex])
             {
@@ -124,8 +125,13 @@ namespace Sorting {
                 rightIndex++;
             }
         }
-         
-         return array;
+        var result1 = leftSlice[leftIndex].Concat(rightSlice[rightIndex]);
+        //sortedArrayResult.Concat(leftSlice[leftIndex], rightSlice[rightIndex]);
+        
+        Console.Write("Result: ");
+        foreach (int value in result1)
+            Console.Write(value + " ");
+        Console.Write("\n"); 
       }
 
 
